@@ -1,75 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Naruto Neo Universe</title>
-<style>
-    /* Dark neon background with gradient */
-    body {
-        margin: 0;
-        font-family: 'Arial', sans-serif;
-        background: linear-gradient(135deg, #111 0%, #222 100%);
-        color: #ffeb3b; /* Neon yellow text */
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        min-height: 100vh;
-        justify-content: center;
-        align-items: center;
-        overflow: hidden;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naruto Neo Universe | Official Poster</title>
+    <style>
+        :root {
+            --neon-yellow: #ffeb3b;
+            --deep-black: #0a0a0a;
+            --accent-orange: #ff6600; /* A nod to the original Naruto */
+        }
 
-    /* Keyframes for flicker animation */
-    @keyframes neonFlicker {
-        0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { text-shadow: 0 0 10px #ffeb3b, 0 0 20px #ffeb3b, 0 0 30px #ffeb3b; }
-        20%, 24%, 55% { text-shadow: 0 0 5px #ffeb3b, 0 0 10px #ffeb3b, 0 0 15px #ffeb3b; }
-    }
+        body {
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(circle, #1a1a1a 0%, #000 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
 
-    /* Heading style with animation */
-    h1 {
-        font-size: 3rem;
-        margin: 0 20px;
-        animation: neonFlicker 1.5s infinite alternate;
-    }
+        /* Flicker Animation from your code */
+        @keyframes neonFlicker {
+            0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { 
+                text-shadow: 0 0 10px var(--neon-yellow), 0 0 20px var(--neon-yellow); 
+            }
+            20%, 24%, 55% { 
+                text-shadow: 0 0 5px var(--neon-yellow), 0 0 10px var(--neon-yellow); 
+            }
+        }
 
-    /* Author credit with softer flicker */
-    p.author {
-        margin-top: 10px;
-        font-size: 1.2rem;
-        color: #fff176;
-        text-shadow: 0 0 5px #fff176;
-        animation: neonFlicker 2s infinite alternate;
-    }
+        /* The Combined Poster Container */
+        .poster {
+            width: 380px;
+            height: 600px;
+            background: url('https://images.unsplash.com/photo-1614583225154-5feaba16f5eb?q=80&w=2000') center/cover;
+            position: relative;
+            box-shadow: 0 0 50px rgba(255, 235, 59, 0.1), inset 0 0 120px #000;
+            border: 1px solid rgba(255, 235, 59, 0.3);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 40px;
+            transition: all 0.5s ease;
+        }
 
-    /* Neon button links */
-    a {
-        display: block;
-        margin: 20px auto;
-        padding: 15px 30px;
-        width: 250px;
-        text-decoration: none;
-        color: #ffeb3b;
-        font-weight: bold;
-        font-size: 1.1rem;
-        border: 2px solid #ffeb3b;
-        border-radius: 10px;
-        transition: 0.3s;
-        text-shadow: 0 0 5px #ffeb3b;
-        animation: neonFlicker 1.8s infinite alternate;
-    }
+        .poster::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(transparent 20%, rgba(0,0,0,0.9) 90%);
+            z-index: 1;
+        }
 
-    a:hover {
-        background-color: #ffeb3b;
-        color: #111;
-        box-shadow: 0 0 20px #ffeb3b, 0 0 40px #ffeb3b, 0 0 60px #ffeb3b;
-    }
-</style>
+        /* Top Credits (Poster Style) */
+        .credits-top {
+            position: absolute;
+            top: 25px;
+            width: calc(100% - 80px);
+            text-align: center;
+            font-size: 9px;
+            letter-spacing: 3px;
+            color: rgba(255, 255, 255, 0.5);
+            text-transform: uppercase;
+            z-index: 2;
+        }
+
+        /* Title Area with Neon Flicker */
+        .title-group {
+            z-index: 2;
+            text-align: left;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            margin: 0;
+            color: var(--neon-yellow);
+            line-height: 1;
+            text-transform: uppercase;
+            animation: neonFlicker 1.5s infinite alternate;
+        }
+
+        .author {
+            margin: 10px 0 20px 0;
+            font-size: 1rem;
+            color: #fff176;
+            letter-spacing: 1px;
+            text-shadow: 0 0 5px #fff176;
+        }
+
+        /* Neon Buttons from your code, integrated into poster */
+        .button-group {
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        a {
+            display: inline-block;
+            padding: 12px;
+            text-decoration: none;
+            color: var(--neon-yellow);
+            font-weight: bold;
+            font-size: 0.9rem;
+            border: 1.5px solid var(--neon-yellow);
+            border-radius: 4px;
+            transition: 0.3s;
+            text-align: center;
+            text-transform: uppercase;
+            background: rgba(0,0,0,0.4);
+        }
+
+        a:hover {
+            background-color: var(--neon-yellow);
+            color: #111;
+            box-shadow: 0 0 15px var(--neon-yellow);
+        }
+
+        /* Hover effect on poster */
+        .poster:hover {
+            border-color: var(--neon-yellow);
+            transform: translateY(-10px);
+        }
+    </style>
 </head>
 <body>
-    <h1>Naruto Neo Universe by Masashi Kishimoto</h1>
-    <p class="author">Written by NVNET</p>
-    <a href="Naruto neo universe.html">Read the Story</a>
-    <a href="details.html">View Details</a>
+
+    <div class="poster">
+        <div class="credits-top">MASASHI KISHIMOTO • STUDIO PIERROT • NVNET</div>
+        
+        <div class="title-group">
+            <h1>Naruto Neo<br>Universe</h1>
+            <p class="author">WRITTEN BY NVNET</p>
+        </div>
+
+        <div class="button-group">
+            <a href="Naruto neo universe.html">Read the Story</a>
+            <a href="details.html">View Details</a>
+        </div>
+    </div>
+
 </body>
 </html>
